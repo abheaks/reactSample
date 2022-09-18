@@ -1,29 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const registerSlice = createSlice({
-    name: 'register',
-    initialState: {
-        contactDetailsProvided: false,
-        userList: []
+  name: "register",
+  initialState: {
+    contactDetailsProvided: false,
+    name: "",
+    email: "",
+  },
+  reducers: {
+    registerUser(state, action) {
+      const newItem = action.payload;
+      state.name = newItem.name;
+      state.email = newItem.email;
+      // password: newItem.password
+      state.contactDetailsProvided = true;
     },
-    reducers: {
-        registerUser(state, action) {
-            const newItem = action.payload;
-            state.userList.push({
-                id: newItem.id,
-                name: newItem.name,
-                email: newItem.email,
-                password: newItem.password
-            })
-
-        },
-        viewInput(state, action) {
-            const newItem = action.payload;
-            console.log(newItem)
-        }
-
-    }
-
+    viewInput(state, action) {
+      const newItem = action.payload;
+      console.log(newItem);
+    },
+  },
 });
 
 export const registerActions = registerSlice.actions;

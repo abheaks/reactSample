@@ -5,14 +5,18 @@ import "./Layout.css";
 import CartItems from "./CartItems";
 import { useSelector } from "react-redux";
 import Register from "./Register";
-import SubmitRegister from './SubmitRegister'
+import Contact from "./Contact";
+import SubmitRegister from "./SubmitRegister";
 const Layout = () => {
   let total = 0;
-  const itemsList = useSelector(state => state.cart.itemsList);
+  const itemsList = useSelector((state) => state.cart.itemsList);
   itemsList.forEach((item) => {
     total += item.totalPrice;
-  })
-  const showCart = useSelector((state) => state.cart.showCart)
+  });
+  const showCart = useSelector((state) => state.cart.showCart);
+  const contactDetailsProvided = useSelector(
+    (state) => state.register.contactDetailsProvided
+  );
 
   return (
     <React.Fragment>
@@ -24,7 +28,9 @@ const Layout = () => {
           <h3>Total: ${total}</h3>
           <button className="orderBtn">Place Order</button>
         </div>{" "} */}
-        <Register onSubmit={SubmitRegister} />
+
+        {!contactDetailsProvided && <Register />}
+        {contactDetailsProvided && <Contact />}
       </div>
     </React.Fragment>
   );

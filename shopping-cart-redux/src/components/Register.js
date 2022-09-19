@@ -25,8 +25,13 @@ const Register = () => {
   };
   return (
     <div>
-      <input type="text" onChange={titleChangeHandler}></input>
-      <input type="text" onChange={emailChangeHandler}></input>
+      <div>
+        Name: <input type="text" onChange={titleChangeHandler}></input>
+      </div>
+      <div>
+        Email: <input type="text" onChange={emailChangeHandler}></input>
+      </div>
+
       <button onClick={submitHandler}>Submit</button>
     </div>
   );

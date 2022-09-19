@@ -4,9 +4,13 @@
 
 html {
   font-family: sans-serif;
-  background: rgb(50, 48, 48);
+  background: #fff;
 }
 
 body {
   margin: 0;
+}
+
+main {
+  margin-top: 6rem;
 }
